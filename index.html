@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Інтерактивний урок англійської B1 на 90 хвилин: наскельне мистецтво Австралії, лексика світових загадок, неформальний лист.">
+<meta property="og:title" content="Stories on the Stone">
+<meta property="og:description" content="Інтерактивний урок англійської B1 на 90 хвилин з автоперевіркою та домашкою.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+img{max-width:100%}
+</style>
+<title>Stories on the Stone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: a worksheet read down one column. Each lesson step opens with its minute range,
+   exercises sit on the page like printed tasks, dotted rules (rock-art dots) separate the steps. */
+:root{
+  --bg:#F5F1E6; --surface:#FFFDF7; --surface-2:#ECE6D3;
+  --ink:#16261D; --ink-soft:#4A5B50; --line:#D6CEB7;
+  --band:#1B4332; --on-band:#F7F2E4; --on-band-soft:#B9CDBF; --gold-on-band:#E3C86F;
+  --gold:#C9A84C; --hl:#F1DE9C;
+  --orange-ink:#B83C08; --btn-bg:#B83C08; --btn-fg:#FFFFFF;
+  --ok:#1C7A4A; --ok-bg:#DCEFE2; --bad:#B42318; --bad-bg:#F9DCD6;
+  --focus:#2D6A4F;
+  --f-display:'Lora',Georgia,'Times New Roman',serif;
+  --f-body:'Onest','Segoe UI',system-ui,-apple-system,sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+  --navh:96px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1912; --surface:#14241B; --surface-2:#1B3025;
+    --ink:#ECE7D8; --ink-soft:#A5B5A9; --line:#2D4336;
+    --band:#143626; --gold:#D9BB5E; --hl:#4D4519;
+    --orange-ink:#FF9A66; --btn-bg:#FF8A55; --btn-fg:#1A0F08;
+    --ok:#6BD39A; --ok-bg:#153826; --bad:#FF9B8F; --bad-bg:#40201B;
+    --focus:#6BD39A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1912; --surface:#14241B; --surface-2:#1B3025;
+  --ink:#ECE7D8; --ink-soft:#A5B5A9; --line:#2D4336;
+  --band:#143626; --gold:#D9BB5E; --hl:#4D4519;
+  --orange-ink:#FF9A66; --btn-bg:#FF8A55; --btn-fg:#1A0F08;
+  --ok:#6BD39A; --ok-bg:#153826; --bad:#FF9B8F; --bad-bg:#40201B;
+  --focus:#6BD39A; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--f-body);overflow-x:clip}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+button{font-family:inherit}
+.wrap{max-width:920px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* header */
+.band{background:var(--band);color:var(--on-band);padding-block:30px 24px}
+.eyebrow{font:600 12px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-on-band);margin:0 0 10px}
+h1{font:700 clamp(36px,8vw,60px)/1.04 var(--f-display);margin:0 0 12px;letter-spacing:-.01em;text-wrap:balance}
+.sub{max-width:60ch;margin:0 0 18px;color:var(--on-band-soft)}
+.dots{height:10px;margin:0 0 18px;background:radial-gradient(circle,var(--gold) 2.2px,transparent 2.7px) 0 50%/14px 10px repeat-x}
+.stats{display:flex;flex-wrap:wrap;gap:12px 30px;align-items:flex-end}
+.stat b{display:block;font:700 28px/1.1 var(--f-mono);font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--on-band-soft)}
+.stats .btn{margin-left:auto;color:var(--on-band);border-color:var(--on-band-soft)}
+.review{margin-top:16px;font-size:14px;color:var(--on-band-soft)}
+.review b{color:var(--on-band);font-weight:600}
+.review .rv{display:inline-block;margin:4px 6px 0 0;padding:2px 9px;border:1px solid var(--on-band-soft);border-radius:6px;color:var(--on-band);font-size:13px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--bg);border-bottom:1px solid var(--line)}
+.navin{display:flex;flex-direction:column;gap:8px;padding-block:8px}
+.tabs{display:flex;gap:6px}
+.tabs button{appearance:none;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:600 14px var(--f-body);padding:7px 14px;border-radius:8px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--band);color:var(--on-band);border-color:var(--band)}
+.steps{display:flex;gap:6px;overflow-x:auto;padding-bottom:3px;scrollbar-width:thin}
+.steps a{flex:0 0 auto;display:flex;gap:8px;align-items:baseline;padding:6px 10px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink);font-size:13px;background:var(--surface)}
+.steps a b{font:600 11px var(--f-mono);color:var(--orange-ink)}
+.steps a i{font:500 11px var(--f-mono);font-style:normal;color:var(--ink-soft)}
+.steps a.done{border-color:var(--ok)}
+
+/* steps */
+main{padding-block:6px 90px}
+.step{scroll-margin-top:calc(var(--navh) + 6px);margin-top:44px;padding-top:30px;background:radial-gradient(circle,var(--line) 1.8px,transparent 2.3px) 0 0/12px 8px repeat-x}
+.step:first-child{margin-top:20px}
+.step-h{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:start;margin-bottom:10px}
+.time{font:700 30px/1 var(--f-mono);color:var(--orange-ink);letter-spacing:-.02em;min-width:92px}
+.time small{display:block;font:500 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:7px}
+.step-h h2{font:700 clamp(24px,4.6vw,33px)/1.15 var(--f-display);margin:0 0 6px;text-wrap:balance}
+.goal{margin:0;color:var(--ink-soft);max-width:62ch}
+
+/* exercise */
+.ex{margin:30px 0 0}
+.ex-h{display:flex;align-items:center;gap:10px}
+.ex-h h3{margin:0;font:700 20px/1.25 var(--f-display)}
+.tag{flex:0 0 auto;display:inline-grid;place-items:center;width:27px;height:27px;border-radius:6px;background:var(--band);color:var(--on-band);font:700 13px var(--f-mono)}
+.instr{margin:7px 0 14px;color:var(--ink-soft);font-size:15px;max-width:68ch}
+.lines{margin:0;padding-left:1.7em;display:grid;gap:10px}
+.lines li{padding-left:4px;line-height:2.1}
+.ex p.txt{line-height:2.2;margin:0 0 12px;max-width:70ch}
+.gw{white-space:nowrap}
+.gn{font:600 12px var(--f-mono);color:var(--ink-soft);margin-right:3px}
+.hint{font:600 12px var(--f-mono);color:var(--orange-ink);margin-left:5px;letter-spacing:.03em}
+.gap{font:inherit;font-size:16px;color:var(--ink);background:transparent;border:0;border-bottom:2px solid var(--ink-soft);border-radius:0;padding:1px 4px;min-width:5.5em;text-align:center;vertical-align:baseline}
+input.gap{min-width:6em;width:auto}
+select.gap{appearance:none;-webkit-appearance:none;padding-right:20px;max-width:100%;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--ink-soft) 50%),linear-gradient(135deg,var(--ink-soft) 50%,transparent 50%);
+  background-position:calc(100% - 11px) 55%,calc(100% - 6px) 55%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+select.gap option{color:var(--ink);background:var(--surface)}
+button.gap.w{min-width:7em;min-height:1.7em;cursor:pointer}
+button.gap.w.active{background:var(--hl);border-bottom-color:var(--orange-ink)}
+.gap.ok{border-bottom-color:var(--ok);background-color:var(--ok-bg)}
+.gap.bad{border-bottom-color:var(--bad);background-color:var(--bad-bg)}
+.mk{display:inline-block;min-width:1em;font-weight:700;margin-left:3px}
+.mk.ok{color:var(--ok)} .mk.bad{color:var(--bad)}
+.tf{display:inline-flex;gap:4px;border:0;padding:0;min-width:0}
+.tf button{appearance:none;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:600 13px var(--f-body);padding:3px 11px;border-radius:6px;cursor:pointer}
+.tf button.on{background:var(--band);border-color:var(--band);color:var(--on-band)}
+.tf.ok button.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.tf.bad button.on{background:var(--bad);border-color:var(--bad);color:#fff}
+.bank{display:flex;flex-wrap:wrap;gap:8px;padding:12px;margin:0 0 16px;background:var(--surface-2);border:1px dashed var(--ink-soft);border-radius:8px}
+.chip{appearance:none;font:600 14px var(--f-body);padding:6px 12px;border:1.5px solid var(--ink);border-radius:6px;background:var(--surface);color:var(--ink);cursor:pointer}
+.chip:disabled{opacity:.35;cursor:default;border-style:dashed}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:18px}
+.score{font:600 13px var(--f-mono);color:var(--ink-soft);margin-left:auto}
+.btn{appearance:none;font:600 14px var(--f-body);padding:9px 15px;border:1.5px solid var(--ink);border-radius:8px;background:transparent;color:var(--ink);cursor:pointer}
+.btn.primary{background:var(--btn-bg);border-color:var(--btn-bg);color:var(--btn-fg)}
+.btn.ghost{border-color:var(--line);color:var(--ink-soft)}
+.btn.sm{padding:6px 11px;font-size:13px}
+
+/* match */
+.match{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:8px 16px}
+.mcol{display:grid;gap:8px;align-content:start}
+.pm{appearance:none;text-align:left;font:500 15px/1.35 var(--f-body);padding:9px 12px;border:1.5px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);cursor:pointer;min-width:0}
+.pm.l{font-weight:700}
+.pm.sel{border-color:var(--orange-ink);background:var(--hl)}
+.pm.done{border-color:var(--ok);background:var(--ok-bg);cursor:default}
+.pm.err{border-color:var(--bad);background:var(--bad-bg)}
+
+/* flashcards */
+.fc-filters,.sp-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.fc-filters .chip.on,.sp-filters .chip.on{background:var(--band);border-color:var(--band);color:var(--on-band)}
+.fc-card{display:block;width:100%;min-height:230px;border:1.5px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);padding:24px;text-align:center;cursor:pointer}
+.fc-card .face{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:180px}
+.fc-card .back{display:none}
+.fc-card.flipped .front{display:none}
+.fc-card.flipped .back{display:flex}
+.fc-card.flipped{background:var(--band);border-color:var(--band);color:var(--on-band)}
+.fc-card.pop{animation:pop .25s ease-out}
+@keyframes pop{from{transform:scale(.98);opacity:.7}to{transform:none;opacity:1}}
+.fc-k{font:600 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.flipped .fc-k{color:var(--gold-on-band)}
+.fc-w{font:700 clamp(32px,7vw,46px)/1.1 var(--f-display)}
+.fc-hint{font-size:13px;color:var(--ink-soft)}
+.fc-ua{font:700 clamp(24px,5vw,32px)/1.2 var(--f-display);color:var(--gold-on-band)}
+.fc-def{font-size:16px;max-width:46ch}
+.fc-ex{font:italic 500 16px/1.5 var(--f-display);color:var(--on-band-soft);max-width:46ch}
+.fc-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.fc-bar .cnt{font:600 13px var(--f-mono);color:var(--ink-soft);margin-left:auto}
+
+/* reading */
+.glossbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--navh));z-index:4;min-height:46px;display:flex;align-items:center;padding:9px 14px;margin:0 0 12px;border:1px solid var(--ink-soft);border-radius:8px;font-size:15px;background:var(--surface-2)}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:clamp(18px,4vw,36px)}
+.paper h4{font:700 clamp(28px,5.5vw,40px)/1.08 var(--f-display);margin:0 0 8px;text-wrap:balance}
+.stand{font:italic 500 18px/1.5 var(--f-display);color:var(--ink-soft);margin:0 0 22px;max-width:56ch}
+.pg{position:relative;font:400 18px/1.78 var(--f-display);max-width:64ch;margin:0 0 1.1em;padding-left:34px}
+.pn{position:absolute;left:0;top:.35em;font:700 12px var(--f-mono);color:var(--orange-ink);border:1.5px solid var(--orange-ink);border-radius:5px;width:22px;height:22px;display:grid;place-items:center;line-height:1}
+.kw{font:inherit;color:inherit;background:linear-gradient(transparent 58%,var(--hl) 58%);border:0;padding:0 1px;cursor:pointer}
+.kw:hover{background:var(--hl)}
+.lead{padding:12px 16px;margin:0 0 14px;border:1px dashed var(--ink-soft);border-radius:8px;background:var(--surface-2);font-size:15px}
+
+/* table */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);background:var(--surface-2)}
+td:first-child{font-weight:700}
+td em{font-family:var(--f-display);color:var(--ink-soft)}
+.note{padding:12px 16px;border:1px solid var(--ink-soft);border-radius:8px;background:var(--surface-2);margin:0 0 14px;font-size:15px;max-width:72ch}
+.note b{font-weight:700}
+
+/* speaking */
+.sp-card{background:var(--band);color:var(--on-band);border-radius:12px;padding:clamp(20px,4vw,34px);min-height:220px;display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+.sp-who{font:600 12px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-on-band)}
+.sp-q{font:500 clamp(22px,4.6vw,31px)/1.32 var(--f-display);margin:0}
+.sp-q mark{background:none;color:var(--gold-on-band);border-bottom:2px solid var(--gold-on-band)}
+.sp-tip{font-size:14px;color:var(--on-band-soft)}
+
+/* plan + writing */
+.plan{display:grid;gap:14px}
+.plan label{display:block;font:600 14px var(--f-body);margin-bottom:5px}
+textarea{width:100%;font:400 17px/1.65 var(--f-display);padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);resize:vertical}
+.plan textarea{min-height:88px}
+.wgrid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start}
+.wgrid textarea{min-height:330px}
+.side{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:14px 16px}
+.side h4{font:600 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 8px}
+.chk{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:7px;font-size:14px}
+.chk li::before{content:'○';display:inline-block;width:1.4em;color:var(--ink-soft)}
+.chk li.y{color:var(--ok)} .chk li.y::before{content:'✓';font-weight:700}
+.exp{display:flex;flex-wrap:wrap;gap:6px}
+.exp span{font-size:12.5px;padding:3px 8px;border:1px solid var(--line);border-radius:6px;color:var(--ink-soft)}
+.exp span.y{background:var(--ok-bg);border-color:var(--ok);color:var(--ok);font-weight:600}
+.wc{font:700 26px/1 var(--f-mono);font-variant-numeric:tabular-nums;margin-bottom:12px}
+.wc small{font:500 12px var(--f-mono);color:var(--ink-soft)}
+@media (max-width:760px){.wgrid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:620px){
+  .step-h{grid-template-columns:minmax(0,1fr);gap:8px}
+  .time small{display:inline;margin-left:8px}
+  .match{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:8px 10px}
+  .pm{font-size:14px;padding:8px 9px}
+  .stats .btn{margin-left:0}
+  .pg{padding-left:30px;font-size:17px}
+}
+@media (prefers-reduced-motion: reduce){.fc-card.pop{animation:none}*{scroll-behavior:auto!important}}
+</style>
+
+</head>
+<body>
+<header class="band">
+  <div class="wrap">
+    <p class="eyebrow">Target English · General English B1</p>
+    <h1>Stories on the Stone</h1>
+    <p class="sub">Інтерактивний урок для Насті й Андрія · 90 хвилин · наскельне мистецтво Австралії, світові загадки та неформальний лист другові</p>
+    <div class="dots" aria-hidden="true"></div>
+    <div class="stats">
+      <div class="stat"><b id="st-ans">0 / 0</b><span>відповідей</span></div>
+      <div class="stat"><b id="st-ok">0</b><span>правильно з першого разу</span></div>
+      <div class="stat"><b id="st-acc">—</b><span>точність</span></div>
+      <button type="button" class="btn sm" id="reset-all">Скинути весь прогрес</button>
+    </div>
+    <div class="review" id="review" hidden><b>Повторити:</b> <span id="rv-list"></span></div>
+  </div>
+</header>
+
+<nav class="nav" id="nav" aria-label="Навігація уроком">
+  <div class="wrap navin">
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" id="tab-lesson" aria-selected="true">Урок · 90 хв</button>
+      <button type="button" role="tab" id="tab-hw" aria-selected="false">Домашка</button>
+    </div>
+    <div class="steps" id="steps"></div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div id="view-lesson"></div>
+  <div id="view-hw" hidden></div>
+</main>
+
+<script>
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s);};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
+var store={get:function(k){try{return localStorage.getItem(k);}catch(e){return null;}},set:function(k,v){try{localStorage.setItem(k,v);}catch(e){}}};
+function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function rng(seed){var a=seed;return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function shuffle(arr,seed){var r=rng(hash(seed)),a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(r()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+/* ===================== DATA ===================== */
+var PREP='at,for,in,into,on,to,with';
+
+var STEPS=[
+{id:'s1',time:'00–10',title:'Розминка: що ми вже знаємо',goal:'Повторюємо фразові дієслова з попередніх уроків та конструкцію be used to / get used to.',blocks:[
+ {type:'gaps',id:'r1',title:'Phrasal verbs у контексті',instr:'Обери фразове дієслово, яке підходить за змістом і за формою.',lines:[
+  'We {{s:set off|set off,gave up,blew up,took up}} very early to reach the national park before the heat.',
+  'I’m going to {{s:take up|take up,give up,pass out,turn into}} yoga next month — I need a new hobby.',
+  'Lena has always {{s:looked up to|looked up to,got away with,ran out of,made up for}} her grandmother because she is so wise.',
+  'We {{s:ran out of|ran out of,put up with,walked out on,made up for}} milk, so I had to go to the shop.',
+  'I’m sorry I forgot your birthday. Let me {{s:make up for|make up for,get up to,go back on,catch up with}} it with a nice dinner.',
+  'He promised to help, but then he {{s:went back on|went back on,lived up to,signed up for,got away with}} his word.',
+  'I can’t {{s:put up with|put up with,fit in with,go in for,turn into}} this noise any longer!',
+  'Slow down! I can’t {{s:catch up with|catch up with,look up to,give up,pass out}} you.'
+ ]},
+ {type:'gaps',id:'r2',title:'Be used to чи get used to?',instr:'Обери правильну форму. Пам’ятай: після to йде іменник або дієслово з -ing.',lines:[
+  'It took me a while to get used to {{s:living|live,living,lived,to live}} in a big city.',
+  'My grandfather {{s:is used to|gets used to,is used to,used to,is getting used to}} getting up at 5 a.m. He has done it all his life.',
+  'I’m not used to {{s:having|have,having,had,to have}} so much homework.',
+  'At first I couldn’t sleep in the hotel, but after a week I {{s:got used to|got used to,was used to,used to,get used to}} the noise.',
+  'Maria has lived in Berlin for three years, so she {{s:has got used to|has got used to,is getting used to,used to,gets used to}} speaking German every day.',
+  'Don’t worry — you will soon {{s:get used to|get used to,used to,is used to,getting used to}} the new schedule.'
+ ]}
+]},
+{id:'s2',time:'10–20',title:'Слова перед читанням',goal:'Знайомимось із лексикою статті: слова з уроку про Австралію та з теми «світові загадки».',blocks:[
+ {type:'flash',id:'f1',title:'Нові слова',instr:'Торкнись картки, щоб її перевернути. Познач слова, які вже знаєш, — решту повтори ще раз.',cards:[
+  ['outback','глибинка, віддалені сухі райони Австралії','the huge, dry area of Australia that is far from towns','They drove through the outback for two days.','au'],
+  ['Aboriginal','аборигенний, корінних народів Австралії','connected with the first people who lived in Australia','Aboriginal art is thousands of years old.','au'],
+  ['landscape','краєвид, ландшафт','everything you can see in an area of land','The landscape changes from desert to forest.','au'],
+  ['image','зображення, образ','a picture, painting or photograph','The cave walls are covered with images of animals.','au'],
+  ['reptile','рептилія, плазун','an animal such as a snake or a crocodile','A crocodile is a large reptile.','au'],
+  ['civilisation','цивілізація','a society with its own culture and way of life','Ancient civilisations built great cities.','au'],
+  ['records','записи, документи, свідчення','information that is kept about the past','There are very few written records from that time.','au'],
+  ['memories','спогади, пам’ять','things that you remember from the past','She has happy memories of that summer.','au'],
+  ['specific','конкретний, особливий','connected with one particular thing, not general','Each painting tells a specific story.','au'],
+  ['original','первісний, оригінальний','the first one, not a copy','The original painting is kept in a museum.','au'],
+  ['deterioration','погіршення, руйнування','the process of becoming worse','The deterioration of the paintings is a serious problem.','au'],
+  ['loss','втрата','the fact that you no longer have something','The loss of these paintings would be terrible.','au'],
+  ['due to','через, внаслідок','because of','The match was cancelled due to bad weather.','au'],
+  ['clue','підказка, ключ до розгадки','a small piece of information that helps to solve a mystery','The detective found an important clue.','my'],
+  ['evidence','докази','facts that show that something is true','There is no evidence that the story is real.','my'],
+  ['investigate','розслідувати, досліджувати','to try to find out the facts about something','Police will investigate the case.','my'],
+  ['theory','теорія, версія','an idea that tries to explain something','Everybody has a different theory about the accident.','my'],
+  ['solve','розв’язати, розкрити','to find the answer to a problem or mystery','Nobody has solved the mystery yet.','my'],
+  ['conclude','дійти висновку','to decide that something is true after thinking about the facts','The scientists concluded that the bones were very old.','my'],
+  ['hoax','обман, містифікація','a trick that makes people believe something false','The famous photo turned out to be a hoax.','my'],
+  ['disappearance','зникнення','when someone or something suddenly cannot be found','The disappearance of the ship was never explained.','my'],
+  ['abandoned','покинутий','left empty and no longer used or wanted','They found an abandoned house in the forest.','my'],
+  ['witness','свідок','a person who sees something happen','A witness saw the car leave the street.','my'],
+  ['phenomenon','явище','something that exists or happens in nature or society','The northern lights are a natural phenomenon.','my']
+ ]},
+ {type:'match',id:'m1',title:'Слово — значення',instr:'Клікни слово, потім його визначення. Правильна пара залишиться підсвіченою зеленим.',pairs:[
+  ['outback','the huge, dry area of Australia that is far from towns'],
+  ['civilisation','the culture and way of life of a society'],
+  ['reptile','an animal such as a snake or a crocodile'],
+  ['deterioration','the process of becoming worse'],
+  ['records','information that is kept about the past'],
+  ['specific','connected with one particular thing, not general'],
+  ['clue','a small piece of information that helps to solve a mystery'],
+  ['hoax','a trick that makes people believe something false']
+ ]}
+]},
+{id:'s3',time:'20–35',title:'Читання: статтю замість відео',goal:'Читаємо авторську статтю про наскельні малюнки Австралії й тренуємо екзаменаційні завдання: True/False та добір заголовків до абзаців.',blocks:[
+ {type:'read',id:'a1',lead:'<b>Lead-in (2 хв, усно).</b> Подивіться на заголовок. Що ви знаєте про мистецтво аборигенів Австралії? Навіщо, на вашу думку, люди малювали на скелях?',title:'Stories on the Stone',stand:'In northern Australia, rock walls hold some of the oldest paintings on Earth. Scientists are still trying to solve their mysteries.',paras:[
+  'Deep in the Australian [[outback|outback — глибинка, віддалені сухі райони Австралії]], far from towns and roads, there is a [[landscape|landscape — краєвид, ландшафт]] of red cliffs, rivers and wetlands. Kakadu National Park, in the north of the country, is one of the best places to see it. But the most amazing thing here is not the nature. It is the thousands of [[images|image — зображення]] that [[Aboriginal|Aboriginal — аборигенний, корінних народів Австралії]] artists painted on the rock walls over many thousands of years.',
+  'These paintings are not just decoration. For Aboriginal people, they carry [[specific|specific — конкретний, особливий]] stories about animals, family, the land and the beginning of the world. Artists painted kangaroos, fish and large [[reptiles|reptile — рептилія, плазун]] such as crocodiles. In one famous style, they even show the bones and inner organs of the animal, as if you could look through its body. Because there was no written language, the paintings also worked as [[records|records — записи, свідчення про минуле]]: they helped people to keep [[memories|memories — спогади, пам’ять]] and to pass knowledge from one generation to the next.',
+  'The first mystery is how old the paintings really are. Scientists cannot simply read a date on the rock, so they look for [[clues|clue — підказка, ключ до розгадки]]. They study the minerals that have slowly grown over an image, test the paint and, in some places, even [[investigate|investigate — розслідувати, досліджувати]] old wasp nests built on top of the art. Using this [[evidence|evidence — докази]], some researchers have [[concluded|conclude — дійти висновку]] that certain paintings could be many thousands of years old. However, experts do not always agree, and the [[theories|theory — теорія, версія]] about the very oldest images are still being discussed.',
+  'The second problem is [[deterioration|deterioration — погіршення, руйнування]]. Many paintings are slowly losing their colour [[due to|due to — через, внаслідок]] rain, wind, insects and animals walking across the rock. Visitors who touch the walls make the damage worse. For this reason, scientists and Aboriginal communities are working together to protect the sites. Once an [[original|original — первісний, справжній, не копія]] painting has disappeared, nobody can bring it back, and the [[loss|loss — втрата]] is permanent.',
+  'Why does all this matter? These paintings are a window into one of the oldest continuous cultures on Earth, and they hold memories that no museum can replace. Protecting them is not only a job for scientists. It is also a way of respecting the people whose stories they tell, and of keeping the history of human [[civilisation|civilisation — цивілізація]] alive for the next generations.'
+ ]},
+ {type:'gaps',id:'tf1',title:'True or False?',instr:'Прочитай статтю й познач кожне твердження: True чи False.',lines:[
+  'Aboriginal artists painted the images in Kakadu over many thousands of years. {{t:T}}',
+  'Kakadu National Park is in the south of Australia. {{t:F}}',
+  'Old wasp nests can help scientists to learn about the age of some paintings. {{t:T}}',
+  'In one famous style, the artists paint only the outside of the animals. {{t:F}}',
+  'All experts agree about the age of the very oldest paintings. {{t:F}}',
+  'Visitors who touch the rock walls can make the damage worse. {{t:T}}',
+  'Rain and wind are the only reasons why the paintings are deteriorating. {{t:F}}',
+  'The paintings helped people to keep memories and share knowledge. {{t:T}}'
+ ]},
+ {type:'gaps',id:'hd1',sorted:true,title:'Заголовки до абзаців',instr:'Для кожного абзацу обери найкращий заголовок. Один заголовок зайвий. Спершу знайди в абзаці головну думку.',lines:[
+  'Paragraph 1: {{s:A remote landscape full of art|A new theory about the first painters,A remote landscape full of art,How scientists try to find the age,Stories and animals in a special style,Why the paintings are in danger,Why these paintings matter to everyone}}',
+  'Paragraph 2: {{s:Stories and animals in a special style|A new theory about the first painters,A remote landscape full of art,How scientists try to find the age,Stories and animals in a special style,Why the paintings are in danger,Why these paintings matter to everyone}}',
+  'Paragraph 3: {{s:How scientists try to find the age|A new theory about the first painters,A remote landscape full of art,How scientists try to find the age,Stories and animals in a special style,Why the paintings are in danger,Why these paintings matter to everyone}}',
+  'Paragraph 4: {{s:Why the paintings are in danger|A new theory about the first painters,A remote landscape full of art,How scientists try to find the age,Stories and animals in a special style,Why the paintings are in danger,Why these paintings matter to everyone}}',
+  'Paragraph 5: {{s:Why these paintings matter to everyone|A new theory about the first painters,A remote landscape full of art,How scientists try to find the age,Stories and animals in a special style,Why the paintings are in danger,Why these paintings matter to everyone}}'
+ ]}
+]},
+{id:'s4',time:'35–45',title:'Word formation',goal:'Утворюємо споріднені слова: префікси, суфікси й родини слів (повторення адвербів, іменників та прикметників).',blocks:[
+ {type:'gaps',id:'wf1',passage:'Kakadu is a {{i:beautiful|BEAUTY}} place in the north of Australia. Its rock walls are covered with {{i:countless|COUNT}} images, and some of them are {{i:unbelievably|BELIEVE}} old. Last year a team of {{i:scientists|SCIENCE}} started a new {{i:investigation|INVESTIGATE}} to find out more about them. The team wants to avoid the {{i:destruction|DESTROY}} of the paintings, so visitors must be very {{i:careful|CARE}} and never touch the rock. It is {{i:impossible|POSSIBLE}} to bring a painting back once it has gone. The {{i:disappearance|DISAPPEAR}} of just one image would be a real loss, and the local guides give {{i:useful|USE}} advice about how to protect the sites.',title:'Rock art notes',instr:'Утвори слово з великих літер так, щоб воно підходило за змістом і граматикою. Звертай увагу на префікси (un-, im-) та суфікси (-ful, -less, -tion, -ance, -ist).'}
+]},
+{id:'s5',time:'45–57',title:'Лексика світових загадок',goal:'Закріплюємо слова теми «Mysteries»: свідки, докази, теорії, містифікації та зникнення.',blocks:[
+ {type:'gaps',id:'vb1',bank:['abandoned','cave','clue','detective','disappearance','evidence','hoax','investigate','odd','solve','theory','witness'],title:'Вставити слово',instr:'Клікни слово з рамки, потім пропуск (або спершу пропуск). Два слова зайві.',lines:[
+  'The police are looking for a {{w:witness}} who saw the accident.',
+  'The sudden {{w:disappearance}} of the famous painting shocked the whole city.',
+  'The photo of the monster was a {{w:hoax}}: a man in a costume took it.',
+  'The detective found a muddy footprint near the window. It was an important {{w:clue}}.',
+  'There is no {{w:evidence}} that ghosts exist. Nobody has a single real photo.',
+  'We found old paintings on the walls of a dark {{w:cave}} in the mountains.',
+  'Scientists will {{w:investigate}} the strange signal from space next month.',
+  'Everybody has a different {{w:theory}} about what happened to the ship.',
+  'It’s really {{w:odd}} that the shop is closed. It’s always open on Saturdays.',
+  'Nobody has lived in that {{w:abandoned}} house for years. The windows are broken.'
+ ]},
+ {type:'gaps',id:'vc1',title:'Обери правильне слово',instr:'У кожному реченні обери слово, яке підходить за змістом.',lines:[
+  'The {{s:cemetery|cemetery,cave}} is a quiet place where people visit the graves of their families.',
+  'Many cultures have an old {{s:myth|myth,report}} about a giant who lives in the mountains.',
+  'Nobody knows the {{s:reason|reason,evidence}} why the explorers never came back.',
+  'The explorers had to {{s:abandon|abandon,weaken}} their camp because of the storm.',
+  'The newspaper published a {{s:report|report,legend}} about the accident.',
+  'Magicians use clever {{s:tricks|tricks,theories}} to surprise the audience.',
+  'The {{s:archaeologist|archaeologist,detective}} found ancient tools in the ruins.',
+  'A rainbow is a beautiful natural {{s:phenomenon|phenomenon,hoax}}.'
+ ]}
+]},
+{id:'s6',time:'57–70',title:'Мова неформального листа',goal:'Ідіоми та фразові дієслова для листа другові (Unit 1): вчимось не лише значенню, а й тому, що стоїть після виразу.',blocks:[
+ {type:'note',title:'Learning focus',text:'Ідіоми та фразові дієслова роблять письмо й мовлення природнішим. Коли вчиш новий вираз, одразу записуй, що йде після нього: <b>іменник, інфінітив, герундій чи прийменник</b>.'},
+ {type:'table',id:'t1',title:'Вирази для листа',rows:[
+  ['get on well with','+ person','добре ладнати з кимось','I get on well with my sister.'],
+  ['have loads in common with','+ person','мати багато спільного з кимось','We have loads in common. We both love hiking.'],
+  ['get on somebody’s nerves','—','діяти на нерви, дратувати','His loud music gets on my nerves.'],
+  ['be into','+ noun / -ing','захоплюватися, дуже любити','I’m really into rock climbing.'],
+  ['be dying to / for','to + verb / for + noun','вмирати від бажання, дуже хотіти','I’m dying to see your photos.'],
+  ['be a natural at','+ noun / -ing','мати природний хист до','She’s a natural at drawing.'],
+  ['hang out with','+ person','проводити вільний час з кимось','I hang out with my friends at weekends.'],
+  ['be somebody’s number one','+ noun','бути для когось на першому місці','Football is my number one hobby.']
+ ]},
+ {type:'match',id:'m2',title:'Вираз — значення',instr:'Клікни вираз, потім його значення.',pairs:[
+  ['get on well with','have a friendly relationship with someone'],
+  ['have loads in common with','share lots of interests or experiences with someone'],
+  ['get on somebody’s nerves','make someone feel irritated'],
+  ['be into','be very interested in something; enjoy it a lot'],
+  ['be dying to / for','want something so much that you can hardly wait'],
+  ['be a natural at','be able to do something very well, as if born to do it'],
+  ['hang out with','relax and spend time with friends'],
+  ['be somebody’s number one','be the person or thing that someone likes best']
+ ]},
+ {type:'gaps',id:'em1',sorted:true,passage:'<b>Hi Jamie,</b>\n\nThanks for your message! I think we’re going to get {{s:on|'+PREP+'}} really well because we have loads {{s:in|'+PREP+'}} common. I’m really {{s:into|'+PREP+'}} rock climbing, just like you. My brother isn’t, though, and he gets {{s:on|'+PREP+'}} my nerves when I talk about it all day! I’m dying {{s:to|'+PREP+'}} see your photos from Tasmania. Do you hang out {{s:with|'+PREP+'}} your cousins at weekends? I do, and my cousin Mia is a natural {{s:at|'+PREP+'}} drawing. She’s dying {{s:for|'+PREP+'}} a new sketchbook for her birthday.\n\n<i>Write soon,<br>Dana</i>',title:'Приклад листа',instr:'Прочитай лист і вставте at, for, in, into, on, to або with. Зверни увагу, як побудований лист: привітання, короткі абзаци, питання до друга, прощання.'}
+]},
+{id:'s7',time:'70–80',title:'Speaking: інтерв’ю',goal:'Ставите одне одному питання з Useful Expressions і відповідаєте повними реченнями, використовуючи нові вирази.',blocks:[
+ {type:'cards',id:'sp1',title:'Interview cards',instr:'Питайте по черзі. Після відповіді постав ще одне питання: <i>Why?</i> або <i>Can you give an example?</i> Намагайтесь вжити виділений вираз у відповіді.',cards:[
+  ['fam','What are your *parents like*? Do you *get on well with* them?'],
+  ['fam','Who is your *number one* person to talk to when you have a problem?'],
+  ['fam','Who do you *hang out with* at the weekend, and what do you usually do?'],
+  ['fam','What’s it like being the youngest, the oldest or an only child?'],
+  ['like','What are you really *into* at the moment?'],
+  ['like','What *gets on your nerves* when you travel?'],
+  ['like','What are you *dying to* do this year?'],
+  ['like','Are you a fan of mystery stories or films? Which is your favourite?'],
+  ['study','Which skill are you *a natural at*? Which skill do you have to practise a lot?'],
+  ['study','What have you been up to lately?'],
+  ['study','Which mystery in the world would you most like to *solve*? What is your theory?'],
+  ['study','Do you think ancient paintings are important? Why or why not?']
+ ]}
+]},
+{id:'s8',time:'80–90',title:'План листа й домашка',goal:'Складаємо план власного листа, щоб удома одразу писати його без паузи.',blocks:[
+ {type:'plan',id:'pl1',title:'Plan your email',instr:'Запиши ключові думки до кожного абзацу (повні речення не обов’язкові). Чернетка зберігається у твоєму браузері.',fields:[
+  ['Абзац 1 — привітання й ти','Hi Jamie! I’m … and I’m … years old. I live in …'],
+  ['Абзац 2 — родина','There are … people in my family. My … is …'],
+  ['Абзац 3 — що ти любиш і що дратує','I’m really into … What gets on my nerves is …'],
+  ['Абзац 4 — загадка або легенда з твоєї країни + 3 питання','In my country there is a legend about … Are you into …?']
+ ]},
+ {type:'note',title:'Домашка',text:'У вкладці «Домашка» на вас чекають: open cloze про корабель Mary Celeste, історія в Past Simple та Past Continuous і <b>неформальний лист</b> для Jamie з автоматичним чеклістом.'}
+]}
+];
+
+var HW=[
+{id:'h1',time:'15',title:'Open cloze: The Mary Celeste',goal:'У кожному пропуску — одне слово (артикль, прийменник, допоміжне дієслово, сполучник).',blocks:[
+ {type:'gaps',id:'hw1',passage:'<b>The Mary Celeste</b>\n\nOn 4 December 1872, sailors on the Dei Gratia saw another ship sailing in a strange way in the Atlantic Ocean. When they went on board, they found {{i:that|}} the Mary Celeste was completely empty. The captain, his wife, their two-year-old daughter and the seven crew members had all disappeared. The ship {{i:was|}} in good condition, and there was enough food {{i:and|}} water for months. Only the lifeboat was missing.\n\nMany theories have tried {{i:to|}} explain the mystery. Some people think there {{i:was|}} a terrible storm. Others say pirates attacked the ship, but there was {{i:no|}} sign of a fight. The most popular theory is that the captain was afraid {{i:of|}} an explosion, because the ship was carrying alcohol. He {{i:may/might/could|}} have told everybody to leave in the lifeboat, but nobody knows for sure. {{i:whatever|}} the reason, the people were never found, and to {{i:this/that|}} day the mystery remains unsolved.',title:'Open cloze',instr:'Впиши одне слово в кожен пропуск.'}
+]},
+{id:'h2',time:'10',title:'Past Simple чи Past Continuous?',goal:'Розповідь у минулому: поставте дієслово в дужках у правильну форму.',blocks:[
+ {type:'gaps',id:'hw2',passage:'Last Saturday, Detective Brown {{i:was drinking|drink}} coffee in his office when the phone {{i:rang|ring}}. A museum guard {{i:called|call}} to report a missing painting. While the guard {{i:was checking|check}} the cameras, somebody {{i:switched|switch}} off the lights. When Brown {{i:arrived|arrive}}, the guard {{i:was standing|stand}} in the empty room. Nobody {{i:saw|see}} the thief leave.',title:'The missing painting',instr:'Впиши дієслово з дужок у правильному часі: Past Simple або Past Continuous.'}
+]},
+{id:'h3',time:'25',title:'Writing: неформальний лист',goal:'Пишемо лист новому другові з Австралії й використовуємо вирази з уроку.',blocks:[
+ {type:'write',id:'wr1',title:'An email to Jamie',instr:'Jamie — твій новий друг з Австралії. Напиши йому неформальний лист (140–170 слів): представся й розкажи про родину; скажи, чим ти захоплюєшся і що тебе дратує; поцікався, що подобається Jamie (мінімум 3 питання); розкажи про одну загадку або легенду зі своєї країни.'}
+]}
+];
+
+/* speaking filters */
+var SPCAT=[['all','Усі'],['fam','Родина й друзі'],['like','Смаки'],['study','Навчання й світ']];
+
+/* ===================== RENDER ===================== */
+var first=new Map(), TOTAL=0, STEPTOT={}, EXSTEP={};
+var FC={}, SP={};
+
+function gapify(text,b,c){
+  return text.replace(/\{\{([sitw]):([^}]*)\}\}/g,function(m,k,body){
+    c.n++; var n=c.n, gid=b.id+'-'+n, h='';
+    if(k==='s'){
+      var parts=body.split('|'), ans=parts[0], opts=parts[1].split(',');
+      if(!b.sorted) opts=shuffle(opts,gid);
+      h='<select class="gap s" id="'+gid+'" data-a="'+esc(ans)+'" aria-label="Gap '+n+'"><option value="">…</option>'+opts.map(function(o){return '<option>'+esc(o)+'</option>';}).join('')+'</select>';
+    } else if(k==='i'){
+      var p=body.split('|'), a=p[0], hint=p[1]||'';
+      var longest=Math.max.apply(null,a.split('/').map(function(x){return x.length;}));
+      h='<input class="gap i" id="'+gid+'" type="text" data-a="'+esc(a)+'" size="'+Math.max(7,longest+2)+'" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Gap '+n+'">'+(hint?'<span class="hint">('+esc(hint)+')</span>':'');
+    } else if(k==='w'){
+      h='<button type="button" class="gap w" id="'+gid+'" data-a="'+esc(body)+'" data-val="" aria-label="Gap '+n+'"></button>';
+    } else {
+      h='<span class="gap tf" id="'+gid+'" data-a="'+esc(body)+'" data-val="" role="group" aria-label="True or false"><button type="button" data-v="T">True</button><button type="button" data-v="F">False</button></span>';
+    }
+    var gn=b.passage?'<span class="gn">('+n+')</span>':'';
+    return '<span class="gw">'+gn+h+'<span class="mk" aria-hidden="true"></span></span>';
+  });
+}
+function head(b,L){return '<div class="ex-h"><span class="tag">'+L+'</span><h3>'+b.title+'</h3></div>'+(b.instr?'<p class="instr">'+b.instr+'</p>':'');}
+function count(b,stepId,n){TOTAL+=n;STEPTOT[stepId]=(STEPTOT[stepId]||0)+n;EXSTEP[b.id]=stepId;}
+
+var RN={
+ gaps:function(b,L,sid){
+  var c={n:0}, body;
+  if(b.passage){
+    body=b.passage.split('\n\n').map(function(p){return '<p class="txt">'+gapify(p,b,c)+'</p>';}).join('');
+  } else {
+    body='<ol class="lines">'+b.lines.map(function(l){return '<li>'+gapify(l,b,c)+'</li>';}).join('')+'</ol>';
+  }
+  var bank=b.bank?'<div class="bank" role="group" aria-label="Word bank">'+b.bank.slice().sort(function(x,y){return x.localeCompare(y);}).map(function(w){return '<button type="button" class="chip" data-w="'+esc(w)+'">'+esc(w)+'</button>';}).join('')+'</div>':'';
+  count(b,sid,c.n);
+  return '<article class="ex" id="'+b.id+'" data-type="gaps">'+head(b,L)+bank+body+'<div class="bar"><button type="button" class="btn primary" data-act="check">Перевірити</button><button type="button" class="btn" data-act="show">Показати відповіді</button><button type="button" class="btn ghost" data-act="reset">Спочатку</button><span class="score" role="status"></span></div></article>';
+ },
+ match:function(b,L,sid){
+  var idx=b.pairs.map(function(_,i){return i;}), order=shuffle(idx,b.id);
+  if(order.every(function(v,i){return v===i;})) order=order.slice(1).concat(order[0]);
+  var left=b.pairs.map(function(p,i){return '<button type="button" class="pm l" data-i="'+i+'">'+esc(p[0])+'</button>';}).join('');
+  var right=order.map(function(i){return '<button type="button" class="pm r" data-i="'+i+'">'+esc(b.pairs[i][1])+'</button>';}).join('');
+  count(b,sid,b.pairs.length);
+  return '<article class="ex" id="'+b.id+'" data-type="match">'+head(b,L)+'<div class="match"><div class="mcol">'+left+'</div><div class="mcol">'+right+'</div></div><div class="bar"><button type="button" class="btn ghost" data-act="reset">Спочатку</button><span class="score" role="status"></span></div></article>';
+ },
+ flash:function(b,L){
+  FC[b.id]={all:b.cards,filter:'all',order:b.cards.map(function(_,i){return i;}),pos:0,known:{}};
+  return '<article class="ex" id="'+b.id+'" data-type="flash">'+head(b,L)+
+   '<div class="fc-filters"><button type="button" class="chip on" data-fcf="all">Усі слова</button><button type="button" class="chip" data-fcf="au">Австралія</button><button type="button" class="chip" data-fcf="my">Загадки</button></div>'+
+   '<button type="button" class="fc-card" data-fc="flip" aria-live="polite"><span class="face front"></span><span class="face back"></span></button>'+
+   '<div class="fc-bar"><button type="button" class="btn sm" data-fc="prev">← Назад</button><button type="button" class="btn sm" data-fc="next">Далі →</button><button type="button" class="btn sm primary" data-fc="know">Знаю ✓</button><button type="button" class="btn sm ghost" data-fc="shuffle">Перемішати</button><span class="cnt"></span></div></article>';
+ },
+ read:function(b,L){
+  var paras=b.paras.map(function(p,i){
+    return '<p class="pg"><span class="pn">'+(i+1)+'</span>'+p.replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g,function(m,w,g){return '<button type="button" class="kw" data-g="'+esc(g)+'">'+w+'</button>';})+'</p>';
+  }).join('');
+  return '<article class="ex" id="'+b.id+'" data-type="read"><div class="ex-h"><span class="tag">'+L+'</span><h3>Reading</h3></div><p class="instr">Торкнись підсвіченого слова — унизу з’явиться переклад.</p><div class="lead">'+b.lead+'</div><div class="glossbar" id="gl-'+b.id+'" aria-live="polite">Торкнись підсвіченого слова, щоб побачити переклад.</div><div class="paper"><h4>'+b.title+'</h4><p class="stand">'+b.stand+'</p>'+paras+'</div></article>';
+ },
+ table:function(b,L){
+  return '<article class="ex" id="'+b.id+'" data-type="table">'+head(b,L)+'<div class="tw"><table><thead><tr><th>Вираз</th><th>Що далі</th><th>Переклад</th><th>Приклад</th></tr></thead><tbody>'+b.rows.map(function(r){return '<tr><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'</td><td>'+esc(r[2])+'</td><td><em>'+esc(r[3])+'</em></td></tr>';}).join('')+'</tbody></table></div></article>';
+ },
+ note:function(b){return '<aside class="note"><b>'+b.title+'.</b> '+b.text+'</aside>';},
+ cards:function(b,L){
+  SP[b.id]={cards:b.cards,filter:'all',order:shuffle(b.cards.map(function(_,i){return i;}),b.id),pos:0,turn:0};
+  return '<article class="ex" id="'+b.id+'" data-type="cards">'+head(b,L)+'<div class="sp-filters">'+SPCAT.map(function(c,i){return '<button type="button" class="chip'+(i===0?' on':'')+'" data-spf="'+c[0]+'">'+c[1]+'</button>';}).join('')+'</div><div class="sp-card"><div class="sp-who"></div><p class="sp-q"></p><div class="sp-tip">Follow-up: Why? · Can you give an example? · What about you?</div></div><div class="bar"><button type="button" class="btn primary" data-sp="next">Наступне питання →</button><button type="button" class="btn ghost" data-sp="shuffle">Перемішати</button><span class="score"></span></div></article>';
+ },
+ plan:function(b,L){
+  return '<article class="ex" id="'+b.id+'" data-type="plan">'+head(b,L)+'<div class="plan">'+b.fields.map(function(f,i){return '<div><label for="'+b.id+'-'+i+'">'+f[0]+'</label><textarea id="'+b.id+'-'+i+'" data-save="'+b.id+'-'+i+'" placeholder="'+esc(f[1])+'"></textarea></div>';}).join('')+'</div></article>';
+ },
+ write:function(b,L){
+  return '<article class="ex" id="'+b.id+'" data-type="write">'+head(b,L)+'<div class="wgrid"><div><label for="wr-text" class="instr" style="display:block;margin:0 0 6px">Твій лист (чернетка зберігається у твоєму браузері):</label><textarea id="wr-text" placeholder="Hi Jamie,&#10;&#10;Thanks for your message! …"></textarea><div class="bar"><button type="button" class="btn primary" id="wr-copy">Скопіювати лист</button><button type="button" class="btn ghost" id="wr-clear">Очистити</button><span class="score" id="wr-msg" role="status"></span></div></div><aside class="side"><div class="wc"><span id="wr-count">0</span> <small>слів · ціль 140–170</small></div><h4>Чекліст</h4><ul class="chk" id="wr-chk"></ul><h4>Вирази з уроку</h4><div class="exp" id="wr-exp"></div></aside></div></article>';
+ }
+};
+
+function renderSteps(list,mountId){
+  var html='';
+  list.forEach(function(s){
+    var L=0, blocks='';
+    s.blocks.forEach(function(b){
+      var letter=(b.type==='note'||b.type==='read'&&false)?'':String.fromCharCode(65+L);
+      if(b.type!=='note') L++;
+      blocks+=RN[b.type](b,letter,s.id);
+    });
+    html+='<section class="step" id="'+s.id+'"><header class="step-h"><div class="time">'+s.time+'<small>хв</small></div><div><h2>'+s.title+'</h2><p class="goal">'+s.goal+'</p></div></header>'+blocks+'</section>';
+  });
+  $(mountId).innerHTML=html;
+}
+
+/* ===================== GAP LOGIC ===================== */
+function norm(s){return String(s).toLowerCase().replace(/[’‘`]/g,"'").replace(/[.!?,;]+$/,'').replace(/\s+/g,' ').trim();}
+function getVal(g){return (g.classList.contains('w')||g.classList.contains('tf'))?(g.dataset.val||''):g.value;}
+function isOk(g,v){return g.dataset.a.split('/').map(norm).indexOf(norm(v))>-1;}
+function mkOf(g){return g.closest('.gw').querySelector('.mk');}
+function unmark(g){g.classList.remove('ok','bad');var m=mkOf(g);m.textContent='';m.className='mk';}
+function mark(g,ok){g.classList.remove('ok','bad');g.classList.add(ok?'ok':'bad');var m=mkOf(g);m.textContent=ok?'✓':'✗';m.className='mk '+(ok?'ok':'bad');}
+function setW(g,word){g.dataset.val=word;g.textContent=word;}
+function releaseW(g){var ex=g.closest('.ex'),w=g.dataset.val;if(!w)return;var chip=$$('.chip',ex).filter(function(c){return c.dataset.w===w&&c.disabled;})[0];if(chip)chip.disabled=false;g.dataset.val='';g.textContent='';unmark(g);}
+function setTF(g,v){g.dataset.val=v;$$('button',g).forEach(function(b){b.classList.toggle('on',b.dataset.v===v);});}
+
+function labelFor(g){
+  var li=g.closest('li'), t=g.dataset.a.split('/')[0];
+  if(g.classList.contains('tf')||g.classList.contains('s')&&g.closest('.ex').id==='hd1') return 'Reading: '+(li?li.textContent.slice(0,32).trim()+'…':t);
+  return t;
+}
+function checkGaps(ex){
+  var ok=0,tot=0;
+  $$('.gap',ex).forEach(function(g){
+    tot++;
+    var v=getVal(g); if(v===''){return;}
+    var r=isOk(g,v); mark(g,r); if(r) ok++;
+    if(!first.has(g.id)) first.set(g.id,{ok:r,label:labelFor(g)});
+  });
+  $('.score',ex).textContent=ok+' / '+tot+' правильно';
+  refresh();
+}
+function showAnswers(ex){
+  $$('.gap.w',ex).forEach(releaseW);
+  $$('.gap',ex).forEach(function(g){
+    var a=g.dataset.a.split('/')[0];
+    if(g.classList.contains('s')||g.classList.contains('i')){g.value=a;}
+    else if(g.classList.contains('w')){var chip=$$('.chip',ex).filter(function(c){return c.dataset.w===a&&!c.disabled;})[0];if(chip)chip.disabled=true;setW(g,a);}
+    else{setTF(g,a);}
+    mark(g,true);
+  });
+}
+function resetEx(ex){
+  var id=ex.id;
+  if(ex.dataset.type==='gaps'){
+    $$('.gap.w',ex).forEach(releaseW);
+    $$('.gap',ex).forEach(function(g){if(g.classList.contains('s')||g.classList.contains('i'))g.value='';else if(g.classList.contains('tf'))setTF(g,'');unmark(g);g.classList.remove('active');});
+    $$('.chip',ex).forEach(function(c){c.disabled=false;});
+  } else if(ex.dataset.type==='match'){
+    $$('.pm',ex).forEach(function(p){p.classList.remove('done','sel','err');});
+  }
+  Array.from(first.keys()).forEach(function(k){if(k.indexOf(id+'-')===0)first.delete(k);});
+  var sc=$('.score',ex); if(sc) sc.textContent='';
+  refresh();
+}
+
+/* ===================== MATCH ===================== */
+function matchClick(btn){
+  var ex=btn.closest('.ex'); if(btn.classList.contains('done'))return;
+  var side=btn.classList.contains('l')?'l':'r', sel=$('.pm.sel',ex);
+  if(!sel){btn.classList.add('sel');return;}
+  if(sel===btn){btn.classList.remove('sel');return;}
+  if(sel.classList.contains(side)){sel.classList.remove('sel');btn.classList.add('sel');return;}
+  var li=side==='l'?btn:sel, ri=side==='r'?btn:sel, i=+li.dataset.i, j=+ri.dataset.i, key=ex.id+'-m'+i;
+  sel.classList.remove('sel');
+  if(i===j){li.classList.add('done');ri.classList.add('done');if(!first.has(key))first.set(key,{ok:true,label:li.textContent});}
+  else{[li,ri].forEach(function(x){x.classList.add('err');setTimeout(function(){x.classList.remove('err');},650);});if(!first.has(key))first.set(key,{ok:false,label:li.textContent});}
+  var done=$$('.pm.l.done',ex).length, n=$$('.pm.l',ex).length;
+  $('.score',ex).textContent=done+' / '+n+' пар'+(done===n?' ✓':'');
+  refresh();
+}
+
+/* ===================== FLASHCARDS ===================== */
+function fcList(s){return s.order.filter(function(i){return s.filter==='all'||s.all[i][4]===s.filter;});}
+function fcRender(id,anim){
+  var s=FC[id], ex=document.getElementById(id), list=fcList(s);
+  if(!list.length)return; if(s.pos>=list.length)s.pos=0; if(s.pos<0)s.pos=list.length-1;
+  var i=list[s.pos], c=s.all[i], card=$('.fc-card',ex);
+  card.classList.remove('flipped');
+  $('.front',card).innerHTML='<span class="fc-k">'+(c[4]==='au'?'Австралія':'Загадки')+'</span><span class="fc-w">'+esc(c[0])+'</span><span class="fc-hint">торкнись, щоб перевернути</span>';
+  $('.back',card).innerHTML='<span class="fc-k">'+esc(c[0])+'</span><span class="fc-ua">'+esc(c[1])+'</span><span class="fc-def">'+esc(c[2])+'</span><span class="fc-ex">“'+esc(c[3])+'”</span>';
+  if(anim){card.classList.remove('pop');void card.offsetWidth;card.classList.add('pop');}
+  var kn=Object.keys(s.known).length, kb=$('[data-fc="know"]',ex);
+  kb.textContent=s.known[i]?'Знаю ✓ (зняти)':'Знаю ✓';
+  $('.cnt',ex).textContent=(s.pos+1)+' / '+list.length+' · знаю: '+kn+' / '+s.all.length;
+}
+function fcAct(btn){
+  var ex=btn.closest('.ex'), id=ex.id, s=FC[id], a=btn.dataset.fc, list=fcList(s);
+  if(a==='flip'){btn.classList.toggle('flipped');return;}
+  if(a==='next'){s.pos++;}
+  if(a==='prev'){s.pos--;}
+  if(a==='know'){var i=list[s.pos];if(s.known[i])delete s.known[i];else s.known[i]=true;fcRender(id,false);return;}
+  if(a==='shuffle'){s.order=shuffle(s.order,id+Date.now());s.pos=0;}
+  fcRender(id,true);
+}
+
+/* ===================== SPEAKING ===================== */
+function spList(s){return s.order.filter(function(i){return s.filter==='all'||s.cards[i][0]===s.filter;});}
+function spRender(id){
+  var s=SP[id], ex=document.getElementById(id), list=spList(s);
+  if(!list.length)return; if(s.pos>=list.length)s.pos=0;
+  var c=s.cards[list[s.pos]], names=['Настя','Андрій'], a=names[s.turn%2], b=names[(s.turn+1)%2];
+  $('.sp-who',ex).textContent='Питає: '+a+' → відповідає: '+b;
+  $('.sp-q',ex).innerHTML=esc(c[1]).replace(/\*([^*]+)\*/g,'<mark>$1</mark>');
+  $('.score',ex).textContent='Питання '+(s.pos+1)+' / '+list.length;
+}
+function spAct(btn){
+  var ex=btn.closest('.ex'), id=ex.id, s=SP[id], a=btn.dataset.sp;
+  if(a==='next'){s.pos++;s.turn++;}
+  if(a==='shuffle'){s.order=shuffle(s.order,id+Date.now());s.pos=0;}
+  spRender(id);
+}
+
+/* ===================== WRITING ===================== */
+var EXPR=[
+ ['get on well with',/\bget(?:s|ting)? on (?:really |very |so |quite )?well\b|\bgot on (?:really |very |so |quite )?well\b/i],
+ ['loads in common',/\b(?:loads|lots|a lot|plenty) in common\b/i],
+ ['get on my nerves',/\bon (?:my|his|her|our|their|your|someone's|somebody's) nerves\b/i],
+ ['be into',/\b(?:am|is|are|was|were|i'm|he's|she's|we're|they're|you're) (?:really |very |totally |quite |also |not )?into\b/i],
+ ['be dying to / for',/\bdying (?:to|for)\b/i],
+ ['be a natural at',/\bnatural at\b/i],
+ ['hang out with',/\bhang(?:s|ing)? out\b|\bhung out\b/i],
+ ['number one',/\bnumber one\b/i],
+ ['mystery word',/\b(?:mystery|mysterious|legend|myth|theory|clue|evidence|solve|investigate)\b/i]
+];
+function evalWriting(){
+  var ta=$('#wr-text'); if(!ta)return;
+  var t=ta.value.replace(/[’‘]/g,"'"), words=(t.trim().match(/[A-Za-z’'-]+/g)||[]).length;
+  $('#wr-count').textContent=words;
+  var used=EXPR.map(function(e){return e[1].test(t);}), n8=used.slice(0,8).filter(Boolean).length;
+  $('#wr-exp').innerHTML=EXPR.map(function(e,i){return '<span class="'+(used[i]?'y':'')+'">'+e[0]+'</span>';}).join('');
+  var q=(t.match(/\?/g)||[]).length;
+  var items=[
+   [/^\s*(hi|hello|dear|hey)\b/i.test(t),'Привітання на початку'],
+   [words>=140&&words<=200,'140–170 слів (зараз '+words+')'],
+   [q>=3,'Мінімум 3 питання (зараз '+q+')'],
+   [n8>=5,'5 виразів з уроку (зараз '+n8+' з 8)'],
+   [used[8],'Загадка або легенда з твоєї країни'],
+   [/(take care|write soon|best wishes|bye for now|speak soon|all the best|cheers|see you|love,)/i.test(t),'Прощання (Write soon, Take care…)']
+  ];
+  $('#wr-chk').innerHTML=items.map(function(i){return '<li class="'+(i[0]?'y':'')+'">'+i[1]+'</li>';}).join('');
+}
+function say(msg){var m=$('#wr-msg');if(m){m.textContent=msg;setTimeout(function(){m.textContent='';},3000);}}
+
+/* ===================== STATS / NAV ===================== */
+function refresh(){
+  var a=0,c=0,rev=[],perStep={};
+  first.forEach(function(v,k){
+    a++; if(v.ok)c++; else if(rev.indexOf(v.label)<0)rev.push(v.label);
+    var exid=k.split('-')[0], sid=EXSTEP[exid]; if(sid)perStep[sid]=(perStep[sid]||0)+1;
+  });
+  $('#st-ans').textContent=a+' / '+TOTAL;
+  $('#st-ok').textContent=c;
+  $('#st-acc').textContent=a?Math.round(c/a*100)+'%':'—';
+  var box=$('#review'); box.hidden=!rev.length;
+  $('#rv-list').innerHTML=rev.slice(0,16).map(function(l){return '<span class="rv">'+esc(l)+'</span>';}).join('');
+  $$('#steps a').forEach(function(an){
+    var sid=an.dataset.step, tot=STEPTOT[sid]||0, d=perStep[sid]||0;
+    var i=$('i',an); if(i) i.textContent=tot?d+'/'+tot:'';
+    an.classList.toggle('done',tot>0&&d>=tot);
+  });
+}
+var VIEW='lesson';
+function buildNav(){
+  var list=VIEW==='lesson'?STEPS:HW;
+  $('#steps').innerHTML=list.map(function(s){return '<a href="#'+s.id+'" data-step="'+s.id+'"><b>'+s.time+'</b>'+s.title.split(':')[0]+' <i></i></a>';}).join('');
+  refresh(); setNavH();
+}
+function setNavH(){var n=$('#nav');if(n)document.documentElement.style.setProperty('--navh',n.offsetHeight+'px');}
+function setView(v){
+  VIEW=v;
+  $('#view-lesson').hidden=v!=='lesson'; $('#view-hw').hidden=v!=='hw';
+  $('#tab-lesson').setAttribute('aria-selected',v==='lesson'); $('#tab-hw').setAttribute('aria-selected',v==='hw');
+  buildNav(); window.scrollTo(0,0);
+}
+
+/* ===================== EVENTS ===================== */
+document.addEventListener('click',function(e){
+  var t=e.target, el;
+  if((el=t.closest('[data-act]'))){
+    var ex=el.closest('.ex'), a=el.dataset.act;
+    if(a==='check')checkGaps(ex); else if(a==='show')showAnswers(ex); else if(a==='reset')resetEx(ex);
+    return;
+  }
+  if((el=t.closest('.gap.w'))){
+    var exw=el.closest('.ex');
+    if(el.dataset.val){releaseW(el);}
+    else{$$('.gap.w.active',exw).forEach(function(x){x.classList.remove('active');});el.classList.add('active');}
+    return;
+  }
+  if((el=t.closest('.chip[data-w]'))){
+    if(el.disabled)return;
+    var ex2=el.closest('.ex'), g=$('.gap.w.active',ex2);
+    if(!g)g=$$('.gap.w',ex2).filter(function(x){return !x.dataset.val;})[0];
+    if(!g)return;
+    setW(g,el.dataset.w); el.disabled=true; g.classList.remove('active'); unmark(g);
+    return;
+  }
+  if((el=t.closest('.tf button'))){
+    var tf=el.closest('.tf'); setTF(tf,el.dataset.v); unmark(tf); return;
+  }
+  if((el=t.closest('.pm'))){matchClick(el);return;}
+  if((el=t.closest('.kw'))){var gl=$('.glossbar',el.closest('.ex'));if(gl)gl.textContent=el.dataset.g;return;}
+  if((el=t.closest('[data-fcf]'))){
+    var exf=el.closest('.ex'), s=FC[exf.id]; s.filter=el.dataset.fcf; s.pos=0;
+    $$('[data-fcf]',exf).forEach(function(b){b.classList.toggle('on',b===el);});
+    fcRender(exf.id,true); return;
+  }
+  if((el=t.closest('[data-fc]'))){fcAct(el);return;}
+  if((el=t.closest('[data-spf]'))){
+    var exs=el.closest('.ex'), sp=SP[exs.id]; sp.filter=el.dataset.spf; sp.pos=0;
+    $$('[data-spf]',exs).forEach(function(b){b.classList.toggle('on',b===el);});
+    spRender(exs.id); return;
+  }
+  if((el=t.closest('[data-sp]'))){spAct(el);return;}
+  if((el=t.closest('#steps a'))){
+    e.preventDefault();
+    var target=document.getElementById(el.dataset.step);
+    if(target)target.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+    return;
+  }
+  if(t.closest('#wr-copy')){
+    var ta=$('#wr-text');
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(ta.value).then(function(){say('Скопійовано ✓');},function(){ta.focus();ta.select();say('Виділено: натисни Ctrl+C');});
+    } else {ta.focus();ta.select();say('Виділено: натисни Ctrl+C');}
+    return;
+  }
+  if(t.closest('#wr-clear')){var tb=$('#wr-text');tb.value='';store.set('soc-wr','');evalWriting();return;}
+  if(t.closest('#reset-all')){location.reload();return;}
+  if(t.closest('#tab-lesson')){setView('lesson');return;}
+  if(t.closest('#tab-hw')){setView('hw');return;}
+});
+function onEdit(e){
+  var g=e.target.closest&&e.target.closest('.gap');
+  if(g&&(g.classList.contains('s')||g.classList.contains('i')))unmark(g);
+  var sv=e.target.dataset&&e.target.dataset.save; if(sv)store.set('soc-'+sv,e.target.value);
+  if(e.target.id==='wr-text'){store.set('soc-wr',e.target.value);evalWriting();}
+}
+document.addEventListener('input',onEdit);
+document.addEventListener('change',onEdit);
+window.addEventListener('resize',setNavH);
+
+/* ===================== BOOT ===================== */
+renderSteps(STEPS,'#view-lesson');
+renderSteps(HW,'#view-hw');
+Object.keys(FC).forEach(function(id){fcRender(id,false);});
+Object.keys(SP).forEach(function(id){spRender(id);});
+$$('textarea[data-save]').forEach(function(t){var v=store.get('soc-'+t.dataset.save);if(v)t.value=v;});
+var wr=$('#wr-text'); if(wr){var d=store.get('soc-wr');if(d)wr.value=d;}
+evalWriting();
+buildNav();
+})();
+</script>
+</body>
+</html>
